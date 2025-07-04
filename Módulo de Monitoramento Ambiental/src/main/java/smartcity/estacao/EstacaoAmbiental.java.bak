@@ -1,0 +1,43 @@
+package smartcity.estacao;
+
+import smartcity.sensor.SensorAmbiental;
+import smartcity.util.RelatorioAmbiental;
+import smartcity.util.Localizacao;
+import smartcity.exceptions.DataReadException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class EstacaoAmbiental implements IEstacaoMonitoramento {
+    private Localizacao localizacao;
+    private List<SensorAmbiental> sensores;
+    
+    public EstacaoAmbiental(Localizacao localizacao) {
+        this.localizacao = localizacao;
+        this.sensores = new ArrayList<>();
+    }
+    
+    @Override
+    public RelatorioAmbiental getRelatorio() {
+        RelatorioAmbiental relatorio = new RelatorioAmbiental();
+        for (SensorAmbiental sensor : sensores) {
+            try {
+                relatorio.adicionarDados(sensor.coletarDados());
+            } catch (DataReadException e) {
+                System.err.println("Erro ao coletar dados do sensor: " + e.getMessage());
+            }
+        }
+        return relatorio;
+    }
+    
+    @Override
+    public Localizacao getLocalizacao() {
+        return localizacao;
+    }
+    
+    @Override
+    public void registrarSensor(SensorAmbiental sensor) {
+        sensores.add(sensor);
+    }
+    
+    // Outros métodos existentes...
+}

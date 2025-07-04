@@ -1,0 +1,6 @@
+=== RELATÓRIO AMBIENTAL ===
+Gerado em: 04/07/2025 11:45:34
+
+Relatório para Centro:
+- SensorQualidadeAr: 32.58672557354149
+- SensorRuido: 74.57674899487493
