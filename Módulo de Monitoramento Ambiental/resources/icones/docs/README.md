@@ -87,9 +87,11 @@ Para rodar o projeto:
 ```bash
 javac -d target/classes $(find src/main/java -name "*.java")
 java -cp target/classes smartcity.Main
-
+```
+---
 
 ## 👥 Autores
 
-- Paulo Roberto de Almeida
-- Luis Renato Pinto
+- Paulo Roberto de Almeida, Ciencia da Computação UFG
+- Luis Renato Pinto, Ciencia da Computação UFG
+- Disciplina: Programação Orientada a Objetos 2025.1 - Universidade Federal de Goiás
